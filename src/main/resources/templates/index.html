@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html"/>
     <title>スシローガチャ</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<form action="#" th:action="@{/result}" method="GET">
-    <p>
-        <label for="price">予算：</label>
-        <input id="price" name="price" type="text" size="40"/>円
-    </p>
-    <p>
-        <input type="submit" value="ガチャる"/>
-    </p>
-</form>
+<div id="center">
+    <header>
+        <h1>スシローガチャ</h1>
+    </header>
+    <div>予算を入力して「ガチャる」ボタンを押してね</div>
+    <form action="#" th:action="@{/result}" method="GET">
+        <p>
+            <label for="price">予算：</label>
+            <input id="price" name="price" type="text" size="40"/>円
+        </p>
+        <p>
+            <input type="submit" class="btn" value="ガチャる"/>
+        </p>
+    </form>
+</div>
 </body>
 </html>
