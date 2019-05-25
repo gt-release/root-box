@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html"/>
+    <title>スシローガチャ結果</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>商品</th>
+        <th>料金(税抜)</th>
+        <th>カロリー</th>
+        <th>カテゴリ</th>
+    </tr>
+    <tr th:each="menu : ${menus.getList()}">
+        <td th:text="${menu.name}"></td>
+        <td th:text="${menu.price}+' 円'"></td>
+        <td th:text="${menu.kcal}+' kcal'"></td>
+        <td th:text="${menu.category}"></td>
+    </tr>
+</table>
+<div th:text="'合計金額:'+${menus.totalPrice()}+' 円'"></div>
+<div th:text="'合計カロリー:'+${menus.totalKcal()}+' kcal'"></div>
+</body>
+</html>
