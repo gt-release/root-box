@@ -14,7 +14,8 @@
     <form action="#" th:action="@{/result}" method="GET">
         <p>
             <label for="price">予算：</label>
-            <input id="price" name="price" type="text" size="40"/>円
+            <input type="text" id="price" name="price" size="40"/>円
+            <input type="hidden" name="uuid" th:value="${uuid}"/>
         </p>
         <p>
             <input type="submit" class="btn" value="ガチャる"/>

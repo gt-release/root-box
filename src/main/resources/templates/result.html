@@ -26,7 +26,7 @@
     </table>
     <div th:text="'合計金額(税込):'+${menus.totalTaxInPrice()}+' 円'"></div>
     <div th:text="'合計カロリー:'+${menus.totalKcal()}+' kcal'"></div>
-    <a th:href="@{/result(price=${param.price[0]})}">
+    <a th:href="@{/result(price=${param.price[0]},uuid=${uuid})}">
         <button type="button" class="btn">もう一回ガチャる</button>
     </a>
     <br>

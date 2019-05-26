@@ -9,10 +9,20 @@ interface MenuMapper {
 
     @Select("""
         SELECT
-            item_name as name, price, kcal, category
+            code, item_name as name, price, kcal, category
         FROM
             menu
     """)
     fun selectAll(): List<Menu>
+
+    @Select("""
+        SELECT
+            code, item_name as name, price, kcal, category
+        FROM
+            menu
+        WHERE
+            code = #{code}
+    """)
+    fun select(code: String): Menu
 
 }
