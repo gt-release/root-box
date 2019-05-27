@@ -3,8 +3,20 @@ body {
   text-align: center;
 }
 
-div#center {
+div.center {
+    position: relative;
     margin: auto;
+    width: 800px;
+}
+
+div.pack {
+    top: -20px;
+}
+
+div.social{
+    position: absolute;
+    bottom: -10px;
+    right: 0px;
 }
 
 header h1{
@@ -20,8 +32,13 @@ header h1{
 }
 
 table {
-    margin-left:auto;
-    margin-right:auto;
+    width: 100%;
+    border: solid 1px #000000;
+    border-collapse: collapse;
+}
+
+td,th {
+    border: solid 1px #000000;
 }
 
 .btn{

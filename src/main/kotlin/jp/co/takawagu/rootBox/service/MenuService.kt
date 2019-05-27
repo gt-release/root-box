@@ -21,4 +21,10 @@ class MenuService(
             tempPrice -= menu.taxInPrice
         }
     }
+
+    fun deserialize(serial: String): Menus {
+        val menus = Menus()
+        serial.split(",").map { menuMapper.select(it) }.forEach { menus.add(it) }
+        return menus
+    }
 }
