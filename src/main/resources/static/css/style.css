@@ -11,6 +11,7 @@ div.center {
 
 div.pack {
     top: -20px;
+    z-index: -1;
 }
 
 div.social{
