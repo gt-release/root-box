@@ -22,7 +22,7 @@ class RootBoxController(
 
     @RequestMapping("result")
     fun result(
-            @RequestParam(value = "price", required = false, defaultValue = "1000") price: String,
+            @RequestParam(value = "price", required = true) price: String,
             @RequestParam(value = "uuid", required = true) uuid: String,
             model: Model): String {
         val menus: Menus

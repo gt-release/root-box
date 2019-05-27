@@ -4,11 +4,17 @@
     <meta charset="UTF-8" http-equiv="Content-Type" content="text/html"/>
     <title>スシローガチャ結果</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async"
+            defer="defer"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body>
-<div id="center">
+<div class="center">
+    <header>
+        <h1>スシローガチャ 結果</h1>
+    </header>
     <div th:text="'予算:'+${param.price[0]}+' 円'"></div>
-    <table border="1">
+    <table>
         <tr>
             <th>商品</th>
             <th>料金(税抜)</th>
@@ -24,11 +30,21 @@
             <td th:text="${menu.category}"></td>
         </tr>
     </table>
-    <div th:text="'合計金額(税込):'+${menus.totalTaxInPrice()}+' 円'"></div>
-    <div th:text="'合計カロリー:'+${menus.totalKcal()}+' kcal'"></div>
-    <a th:href="@{/result(price=${param.price[0]},uuid=${uuid})}">
-        <button type="button" class="btn">もう一回ガチャる</button>
-    </a>
+    <br>
+    <div class="social">
+        <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3"
+             data-url="https://root-box.herokuapp.com/" data-color="default" data-size="small" data-count="false"
+             style="display: none;"></div>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+    </div>
+</div>
+<div class="center pack">
+    <div th:text="'合計金額(税込):'+${menus.totalTaxInPrice()}+' 円     合計カロリー:'+${menus.totalKcal()}+' kcal'"></div>
+    <p>
+        <button class="btn" th:onclick="|window.location.href='@{/result(price=${param.price[0]},uuid=${uuid})}'|">
+            もう一回ガチャる
+        </button>
+    </p>
     <br>
     <a th:href="@{/}">予算の入力に戻る</a>
 </div>

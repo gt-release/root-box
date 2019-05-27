@@ -13,8 +13,11 @@ class RedisConfig {
     @Bean
     fun redisConnectionFactory(): LettuceConnectionFactory {
         val uri = RedisURI.create(System.getenv("REDIS_URL"))
-        val redisConfig = RedisStandaloneConfiguration(uri.host, uri.port)
-        redisConfig.password = RedisPassword.of(uri.password)
-        return LettuceConnectionFactory(redisConfig)
+        return LettuceConnectionFactory(
+                RedisStandaloneConfiguration().apply {
+                    hostName = uri.host
+                    port = uri.port
+                    password = RedisPassword.of(uri.password)
+                })
     }
 }
