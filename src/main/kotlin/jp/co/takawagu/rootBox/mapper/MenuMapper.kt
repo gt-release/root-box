@@ -12,6 +12,8 @@ interface MenuMapper {
             code, item_name as name, price, kcal, category
         FROM
             menu
+        WHERE
+            disabled = '0'
     """)
     fun selectAll(): List<Menu>
 
